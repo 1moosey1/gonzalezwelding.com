@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>About - Gonzalez Welding</title>
+    
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/gwm.css' %}">
+</head>
+
+<body>
+
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navlinks">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+
+    <div>
+      <!-- <img class="img-circle logo" src="http://i.imgur.com/NPdH4rJ.jpg"> -->
+      <span class="navbar-brand"> GWM </span>
+    </div>
+  </div>
+
+  <div class="collapse navbar-collapse" id="navlinks">
+    <ul class="nav navbar-nav nav-pills">
+      <li>
+        <a href="{% url 'pages:home' %}">Home</a>
+      </li>
+      <li class="active">
+        <a href="{% url 'pages:about' %}">About</a>
+      </li>
+      <li>
+        <a href="#work">Work</a>
+      </li>
+      <li>
+        <a href="#reviews">Reviews</a>
+      </li>
+      <li>
+        <a href="#contact">Contact</a>
+      </li>
+    </ul>
+  </div>
+
+</nav>
+<!-- End Navigation -->
+
+<!-- Content -->
+<div class="text-center">
+
+  <!-- Header -->
+  <h1 class="gwm-header1"> 
+    <span class="gwm-letter">G</span>onzalez 
+    <span class="gwm-letter">W</span>elding 
+    <span class="gwm-letter">M</span>obile
+  </h1>
+
+  <p class="gwm-header2">
+    Mobile Welding Rig at your side. Anytime, Anyplace, Anywhere!
+  </p>
+
+  <button type="button" class="btn-circle">
+    <i class="fa fa-2x fa-linkedin-square"></i>
+  </button>
+
+  <button type="button" class="btn-circle">
+    <i class="fa fa-2x fa-instagram"></i>
+  </button>
+
+  <button type="button" class="btn-circle">
+    <i class="fa fa-2x fa-facebook-square"></i>
+  </button>
+  <!-- End Header -->
+  
+  <!-- Company & Equipment -->
+  <div class="row gwm-mt gwm-mb">
+    
+    <!-- Company -->
+    <div class="col-md-7 col-md-offset-1">
+      
+      <h2 class="gwm-header2 gwm-text-left">
+        <span class="gwm-letter">O</span>ur Company at a Glance
+      </h2>
+      
+      <div class="row">
+        
+        <div class="col-md-4">
+          <img class="profile" src="{% static 'images/profile.png' %}">
+        </div>
+        
+        <div class="col-md-8">
+          <p class="gwm-text gwm-text-left">
+            <i class="fa fa-user"></i>
+            Carlos Gonzalez - Owner <br>
+            Here at Gonzalez Welding Mobile, we are dedicated to you and your welding needs. I have been welding since 1993 for various companies and have worked side jobs involving commercial and residential projects. I provided superior service to my customers and I am currently certified to weld Stick, Mig and Tig (Mild steel, Stainless Steel and Aluminum) and also certified with D1.1, D1.5 wire NR-232 and core8, Dual Shield, E7018, Pipe 6G and ER5356 and more procedures.
+          </p>
+        </div>
+        
+      </div>
+      
+    </div>
+    <!-- End Company-->
+    
+    <!-- Equipment -->
+    <div class="col-md-3 gwm-text-left">
+      
+      <h2 class="gwm-header2">
+        <span class="gwm-letter">E</span>quipment
+      </h2>
+      
+      <div class="row">
+        
+        <div class="col-md-6">
+          
+          <h3 class="gwm-header3">Miller</h3>
+          <p>Trailblazer 302</p>
+          <p>Millermatic 252</p>
+          <p>Dynasty 280 DX</p>
+          <p>XR-D with Aumna Pro</p>
+          <p>Maxtar 150 STL</p>
+          <p>30 A Spool Gun</p>
+          
+        </div>
+        
+        <div class="col-md-6">
+          
+          <h3 class="gwm-header3">Lincoln</h3>
+          <p>Vantage 500</p>
+          <p>Ln 25 Wire Feeder</p>
+          <p>Power Mig 140c</p>
+          
+        </div>
+        
+      </div>
+      
+      <h3 class="gwm-header3">
+        Hypertherm 30 Plasma Cutter
+      </h3>
+      
+      <i>
+        Equipment is essential in getting the job done but it takes skill to get the job done right.
+      </i>
+      
+    </div>
+    <!-- End Equipment -->
+    
+  </div>
+  <!-- End Company & Equipment --> 
+  
+  <!-- Work History -->
+  <div class="row gwm-text-left">
+    <!-- Work History Column -->
+    <div class="col-md-10 col-md-offset-1">
+      
+      <h2 class="gwm-header2">
+        <span class="gwm-letter">B</span>rief Work History
+      </h2>
+      
+      <!-- Well -->
+      <div class="well gwm-history">  
+        
+        <div>
+          <h3 class="gwm-header3">
+            1993-2000
+          </h3>
+          <p>
+            Bay Ship & Yacht, started as a labor and soon after started welding. My positions were production welding and a lead-man. I lead other welders in carrying out their job, which involved supervising and assuring that the work was done right.
+          </p>
+        </div>
+        
+        <div>
+          <h3 class="gwm-header3">
+            2000-2001
+          </h3>
+          <p>
+            Masters Tug and Tow, Junior Deck Engineer, my work included maintaining tugs structurally and mechanical while assisting on the deck.
+          </p>
+        </div>
+        
+        <div>
+          <h3 class="gwm-header3">
+            2001-2005
+          </h3>
+          <p>
+            Tutor Saliva, Production Welder "Journeyman", welded new columns, cofferdams, wailer systems, sheet piles, pipe piles and beam piles.
+          </p>
+        </div>
+        
+        <div>
+          <h3 class="gwm-header3">
+            2005-2012
+          </h3>
+          <p>
+            Salt River Construction, Lead Welder and Foreman, was in charge of all repairs, modifications and maintenance of equipment which includes: boats, barges, excavators and tractors.
+          </p>
+        </div>
+        
+        <div>
+          <h3 class="gwm-header3">
+            2012 - Present
+          </h3>
+          <p>
+            Mobile Rig Welder of my current company Gonzalez Welding Mobile. I am in charge of all projects and provide great service for all customers.
+          </p>
+        </div>
+        
+      </div>
+      <!-- End Well -->
+      
+    </div>
+    <!-- End Work History Column -->   
+  </div>
+  <!-- End Work History -->
+  
+</div>
+<!-- End Content -->
+
+<!-- Footer -->
+<div class="footer text-center">
+
+  <p>Gonzalez Welding Mobile ©2017</p>
+  <div>
+    <a href="{% url 'pages:home' %}">Home</a>
+    <a href="{% url 'pages:about' %}">About</a>
+    <a href="#work">Work</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#contact">Contact</a>
+  </div>
+
+</div>
+<!-- End Header -->
+
+<script src="{% static 'js/jquery-3.1.1.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+  
+</body>
+</html>

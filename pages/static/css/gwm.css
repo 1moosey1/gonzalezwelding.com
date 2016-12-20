@@ -24,6 +24,12 @@ body {
   margin-right: 10px;
 }
 
+.profile {
+  
+  height: 220px;
+  width: 240px;
+}
+
 .btn-circle {
   
   width: 3em;
@@ -43,9 +49,18 @@ body {
 }
 
 .carousel {
-
+  
   height: 23em;
   overflow: hidden;
+}
+
+@media only screen and (max-width: 768px) {
+    
+  .carousel {
+  
+  height: 14em;
+  overflow: hidden;
+  }
 }
 
 .gwm-carousel-img {
@@ -142,6 +157,12 @@ http://stackoverflow.com/questions/19695784/how-can-i-make-bootstrap-columns-all
 
   background-color: #363636;
   color: #ecf0f1;
+}
+
+.gwm-history {
+  
+  background-color: #FFFFFF;
+  box-shadow: inset 0px 0px .25em #000000;
 }
 
 /* 
