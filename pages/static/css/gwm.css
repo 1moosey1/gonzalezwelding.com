@@ -1,0 +1,160 @@
+html {
+  
+  position: relative;
+  min-height: 100%;
+  background-color: #f7f7ee;
+}
+
+body { 
+  
+  background-color: #f7f7ee;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.navbar-brand { 
+  color: #ffffff !important;
+}
+
+.logo {
+  
+  width: 50px;
+  height: auto;
+  
+  margin-right: 10px;
+}
+
+.btn-circle {
+  
+  width: 3em;
+  height: 3em;
+  outline: none;
+  border: none;
+  border-radius: 20px;
+  background-color: #e3e2c1;
+}
+
+.btn-circle:hover {
+  background-color: #f7f7ee;
+}
+
+.btn-circle:active {
+  background-color: #f7f7ee;
+}
+
+.carousel {
+
+  height: 23em;
+  overflow: hidden;
+}
+
+.gwm-carousel-img {
+  
+  width: 100%;
+  height: auto;
+}
+
+.gwm-letter { 
+  color: #b16253;
+}
+
+.gwm-header1 {
+  
+  font-family: Caslon, Verdana, Segoe, sans-serif;
+	font-size: 6em;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+  text-shadow: 1px 1px 3px #000000;
+}
+
+.gwm-header2 {
+  
+  font-family: Tahoma, Verdana, Segoe, sans-serif;
+	font-size: 1.5em;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+}
+
+.gwm-header3 {
+  
+  font-family: Tahoma, Verdana, Segoe, sans-serif;
+	font-size: 1.25em;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 900;
+}
+
+.gwm-text {
+  
+  font-family: Tahoma, Verdana, Segoe, sans-serif;
+	font-size: 1.2em;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 700;
+}
+
+.gwm-text-left {
+  text-align: left;
+}
+
+.gwm-mt {
+  margin-top: 4em;
+}
+
+.gwm-mb {
+  margin-bottom: 5em;
+}
+
+/*
+Fix for equal row heights and row extending too far to the right
+
+popnoodles
+http://stackoverflow.com/questions/19695784/how-can-i-make-bootstrap-columns-all-the-same-height
+*/
+.row {
+  
+  margin-left: 0px;
+  margin-right: 0px;
+  
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.row > [class*='col-'] {
+  
+  display: flex;
+  flex-direction: column;
+}
+
+.gwm-panel {
+  
+  box-shadow: 0px 0px 1em #000000;
+  height: 100%;
+  border-color: black;
+}
+
+.panel > .panel-heading {
+
+  background-color: #363636;
+  color: #ecf0f1;
+}
+
+/* 
+Sticky Footer
+
+abmmhasan
+http://stackoverflow.com/questions/19756997/how-to-create-a-sticky-footer-that-plays-well-with-bootstrap-3
+*/
+.footer {
+  
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 5px;
+  background-color: #f7f7ee;
+}

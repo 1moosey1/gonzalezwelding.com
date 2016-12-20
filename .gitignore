@@ -1,1 +1,5 @@
-gonzalezwelding/__pycache__/*
+*.pyc
+db.sqlite3
+gonzalezwelding/.idea/*
+pages/.idea/*
+workbench/.idea/*
