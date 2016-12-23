@@ -103,11 +103,13 @@
         <span class="gwm-letter">C</span>ontact Us
       </h2>
 
-      {% if message %}
-        <div class="alert alert-info alert-dismissible">
-          <a href="#" class="close" data-dismiss="alert">&times;</a>
-          {{ message }}
-        </div>
+      {% if messages %}
+        {% for message in messages %}
+          <div class="alert alert-info alert-dismissible">
+            <a href="#" class="close" data-dismiss="alert">&times;</a>
+            {{ message }}
+          </div>
+        {% endfor %}
       {% endif %}
 
       {% if form.errors %}
