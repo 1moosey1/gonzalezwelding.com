@@ -6,8 +6,9 @@ from . import views
 
 app_name = 'pages'
 urlpatterns = [
-    url(r'^$',         IndexView.as_view(),   name='index'),
-    url(r'^home/$',    HomeView.as_view(),    name='home'),
-    url(r'^about/$',   AboutView.as_view(),   name='about'),
-    url(r'^contact/$', views.contact,         name='contact')
+    url(r'^$',              IndexView.as_view(),   name='index'),
+    url(r'^home/$',         HomeView.as_view(),    name='home'),
+    url(r'^about/$',        AboutView.as_view(),   name='about'),
+    url(r'^contact/$',      views.contact,         name='contact'),
+    url(r'^testimonials/$', views.testimonials,    name='testimonials')
 ]

@@ -43,3 +43,8 @@ def contact(request):
 
     context = {'form': contact_form, 'api_key': api_key}
     return render(request, 'pages/contact.html', context)
+
+
+# Render Testimonials
+def testimonials(request):
+    return render(request, 'pages/testimonials.html')
