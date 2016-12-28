@@ -10,5 +10,6 @@ urlpatterns = [
     url(r'^home/$',         HomeView.as_view(),    name='home'),
     url(r'^about/$',        AboutView.as_view(),   name='about'),
     url(r'^contact/$',      views.contact,         name='contact'),
+    url(r'^work/$',         views.work,            name='work'),
     url(r'^testimonials/$', views.testimonials,    name='testimonials')
 ]

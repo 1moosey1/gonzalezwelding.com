@@ -2,6 +2,29 @@
 {% load static %}
 
 {% block content %}
+  <div class="row gwm-mt gwm-text-left">
+    <div class="col-md-10 col-md-offset-1">
+
+      <h2 class="gwm-header2">
+        <span class="gwm-letter">T</span>estimonials
+      </h2>
+
+      <div class="well gwm-well">
+        <div class="row gwm-smt">
+
+          {% for testimonial in testimonials %}
+            <div class="col-md-6">
+              <p class="gwm-text">{{ testimonial.text }}</p>
+              <p class="">- {{ testimonial.quotee }}</p>
+              <p class="">{{ testimonial.company }}</p>
+            </div>
+          {% endfor %}
+
+        </div>
+      </div>
+
+    </div>
+  </div>
 {% endblock %}
 
 {% block script %}

@@ -40,7 +40,7 @@
         <a href="{% url 'pages:about' %}">About</a>
       </li>
       <li id="work">
-        <a href="#work">Work</a>
+        <a href="{% url 'pages:work' %}">Work</a>
       </li>
       <li id="testimonials">
         <a href="{% url 'pages:testimonials' %}">Testimonials</a>
@@ -92,9 +92,9 @@
 
   <p>Gonzalez Welding Mobile ©2017</p>
   <div>
-    <a href="{% url 'pages:home' %}">Home</a>
+    <a href="{% url 'pages:home'  %}">Home</a>
     <a href="{% url 'pages:about' %}">About</a>
-    <a href="#work">Work</a>
+    <a href="{% url 'pages:work'  %}">Work</a>
     <a href="{% url 'pages:testimonials' %}">Testimonials</a>
     <a href="{% url 'pages:contact' %}">Contact</a>
   </div>
