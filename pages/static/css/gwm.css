@@ -55,16 +55,16 @@ body {
 }
 
 @media only screen and (max-width: 768px) {
-    
+
   .carousel {
   
-  height: 14em;
-  overflow: hidden;
+    height: 14em;
+    overflow: hidden;
   }
 }
 
 .gwm-carousel-img {
-  
+
   width: 100%;
   height: auto;
 }

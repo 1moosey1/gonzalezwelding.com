@@ -2,7 +2,7 @@ from django.views.generic import TemplateView, RedirectView
 from django.contrib import messages
 from django.shortcuts import render
 from pages.forms import ContactForm
-from pages.models import Testimonial
+from pages.models import Testimonial, Project
 
 import os
 
@@ -48,7 +48,9 @@ def contact(request):
 
 # Render work page
 def work(request):
-    return render(request, 'pages/work.html')
+
+    context = {'projects': Project.objects.all()}
+    return render(request, 'pages/work.html', context)
 
 
 # Render testimonials page

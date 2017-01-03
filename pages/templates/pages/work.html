@@ -1,11 +1,50 @@
 {% extends "pages/base.html" %}
 {% load static %}
+<!--suppress ALL -->
+
+{% block link %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/slick.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'css/slick-theme.css' %}"/>
+{% endblock %}
 
 {% block content %}
+  <div class="row gwm-mt gwm-mb">
+
+    {% for project in projects %}
+    <div class="col-md-4 col-md-offset-1">
+
+      <p> {{ project.title }} </p>
+      <p> {{ project.description }} </p>
+      <div class="slick-carousel carousel">
+
+        {% for image in project.images.all %}
+        <div>
+          {% with 'images/projects/'|add:project.folder|add:'/'|add:image.name as image %}
+          <img class="gwm-carousel-img" src="{% static image %}">
+          {% endwith %}
+        </div>
+        {%  endfor %}
+
+      </div>
+
+    </div>
+    <div class="col-md-offset-1"></div>
+    {% endfor %}
+
+  </div>
 {% endblock %}
 
 {% block script %}
 <script>
   $("#work").addClass("active");
+  $(document).ready(function(){
+
+    $(".slick-carousel").slick({
+
+      accessibility: true,
+      autoplay: true
+    });
+});
 </script>
+<script type="text/javascript" src="{% static 'js/slick.min.js' %}"></script>
 {% endblock %}
