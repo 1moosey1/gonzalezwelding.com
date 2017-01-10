@@ -63,6 +63,18 @@ body {
   }
 }
 
+.carousel-control {
+  opacity: 1;
+}
+
+.left {
+  background-image: none !important;
+}
+
+.right {
+  background-image: none !important;
+}
+
 .gwm-carousel-img {
 
   width: 100%;
