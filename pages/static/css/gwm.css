@@ -57,8 +57,8 @@ body {
 @media only screen and (max-width: 768px) {
 
   .carousel {
-  
-    height: 14em;
+
+    height: 18em;
     overflow: hidden;
   }
 }
