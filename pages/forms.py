@@ -15,8 +15,8 @@ class ContactForm(forms.Form):
     def clean_message(self):
 
         message = self.cleaned_data['message']
-        message_len = len(message.split())
+        message_len = len(message)
         if message_len < 5:
-            raise forms.ValidationError("Message too short!")
+            raise forms.ValidationError("Message must be at least 5 characters")
 
         return message
