@@ -1,6 +1,5 @@
 {% extends "pages/base.html" %}
 {% load static %}
-<!--suppress ALL -->
 
 {% block content %}
   <div class="row gwm-mt gwm-mb">
@@ -44,7 +43,13 @@
 
 {% block script %}
 <script>
-  $("#work").addClass("active");
-  $("div[id*='00.jpg']").addClass("active");
+
+  document.getElementById("work").className += " active";
+
+  var items = document.getElementsByClassName("item");
+  for(var i = 0; i < items.length; ++i)
+    if((items[i].id).includes("00.jpg"))
+      items[i].className += " active";
+
 </script>
 {% endblock %}

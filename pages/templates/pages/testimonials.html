@@ -1,10 +1,10 @@
 {% extends "pages/base.html" %}
 {% load static %}
-<!--suppress ALL -->
 
 {% block content %}
   <div class="row gwm-mt gwm-text-left">
-    <div class="col-md-10 col-md-offset-1">
+    <div class="col-md-10 col-md-offset-1
+                col-xs-10 col-xs-offset-1">
 
       <h2 class="gwm-header2">
         <span class="gwm-letter">T</span>estimonials
@@ -13,6 +13,7 @@
       <div class="well gwm-well">
         <div class="row gwm-smt">
 
+          Coming Soon
           {% for testimonial in testimonials %}
             <div class="col-md-6">
               <p class="gwm-text">{{ testimonial.text }}</p>
@@ -30,6 +31,6 @@
 
 {% block script %}
 <script>
-  $("#testimonials").addClass("active");
+  document.getElementById("testimonials").className += " active";
 </script>
 {% endblock %}

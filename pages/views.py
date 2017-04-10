@@ -28,7 +28,6 @@ class AboutView(TemplateView):
 # Render contact page
 def contact(request):
 
-    api_key = os.environ['GMAPKEY']
     if request.method == 'POST':
 
         contact_form = ContactForm(request.POST)
@@ -42,7 +41,7 @@ def contact(request):
     else:
         contact_form = ContactForm()
 
-    context = {'form': contact_form, 'api_key': api_key}
+    context = {'form': contact_form}
     return render(request, 'pages/contact.html', context)
 
 
