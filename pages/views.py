@@ -4,9 +4,7 @@ from django.shortcuts import render
 from pages.forms import ContactForm
 from pages.models import Testimonial, Project
 from django.core.mail import send_mail
-
-import os
-
+from django.views.decorators.clickjacking import xframe_options_exempt
 
 # Index View - redirects to home page
 class IndexView(RedirectView):
@@ -17,8 +15,9 @@ class IndexView(RedirectView):
 
 
 # Home View - render home page
-class HomeView(TemplateView):
-    template_name = 'pages/index.html'
+@xframe_options_exempt
+def home(request):
+    return render(request, 'pages/index.html')
 
 
 # About View - render about page
