@@ -88,38 +88,39 @@ body {
 .gwm-header1 {
   
   font-family: Caslon, Verdana, Segoe, sans-serif;
-	font-size: 6em;
-	font-style: normal;
-	font-variant: normal;
-	font-weight: 500;
+    font-size: 6em;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 500;
+
   text-shadow: 1px 1px 3px #000000;
 }
 
 .gwm-header2 {
   
   font-family: Tahoma, Verdana, Segoe, sans-serif;
-	font-size: 1.5em;
-	font-style: normal;
-	font-variant: normal;
-	font-weight: 500;
+    font-size: 1.5em;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 500;
 }
 
 .gwm-header3 {
   
   font-family: Tahoma, Verdana, Segoe, sans-serif;
-	font-size: 1.25em;
-	font-style: normal;
-	font-variant: normal;
-	font-weight: 900;
+    font-size: 1.25em;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 900;
 }
 
 .gwm-text {
   
   font-family: Tahoma, Verdana, Segoe, sans-serif;
     font-size: 1.15em;
-	font-style: normal;
-	font-variant: normal;
-	font-weight: 200;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 200;
 }
 
 .gwm-text-left {

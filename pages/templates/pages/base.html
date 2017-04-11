@@ -2,57 +2,70 @@
 {% load static %}
 
 <html>
-
 <head>
-  <meta charset="UTF-8">
-  <title>Home - Gonzalez Welding</title>
 
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="{% static 'css/gwm.css' %}">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" 
+        content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">  
+
+  <title>Gonzalez Welding - Bay Area Welding Contractor</title>
+
+  <link rel="stylesheet" 
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+
+  <link rel="stylesheet" 
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <link rel="stylesheet" 
+        href="{% static 'css/gwm.css' %}">
+  
   {% block link %}
   {% endblock %}
+
 </head>
 
 <body>
 
 <!-- Navigation -->
 <nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
 
-  <div class="navbar-header">
-    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navlinks">
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navlinks">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
 
-    <div>
-      <!-- <img class="img-circle logo" src=""> -->
-      <span class="navbar-brand"> GWM </span>
+      <div>
+        <span class="navbar-brand"> GWM </span>
+      </div>
     </div>
-  </div>
 
-  <div class="collapse navbar-collapse" id="navlinks">
-    <ul class="nav navbar-nav nav-pills">
-      <li id="home">
-        <a href="{% url 'pages:home' %}">Home</a>
-      </li>
-      <li id="about">
-        <a href="{% url 'pages:about' %}">About</a>
-      </li>
-      <li id="work">
-        <a href="{% url 'pages:work' %}">Work</a>
-      </li>
-      <li id="testimonials">
-        <a href="{% url 'pages:testimonials' %}">Testimonials</a>
-      </li>
-      <li id="contact">
-        <a href="{% url 'pages:contact' %}">Contact</a>
-      </li>
-    </ul>
-  </div>
+    <div class="collapse navbar-collapse" id="navlinks">
+      <ul class="nav navbar-nav nav-pills">
+        <li id="home">
+          <a href="{% url 'pages:home' %}">Home</a>
+        </li>
+        <li id="about">
+          <a href="{% url 'pages:about' %}">About</a>
+        </li>
+        <li id="work">
+          <a href="{% url 'pages:work' %}">Work</a>
+        </li>
+        <li id="testimonials">
+          <a href="{% url 'pages:testimonials' %}">Reviews</a>
+        </li>
+        <li id="contact">
+          <a href="{% url 'pages:contact' %}">Contact</a>
+        </li>
+      </ul>
+    </div>
 
+  </div>
 </nav>
 <!-- End Navigation -->
 
@@ -70,6 +83,7 @@
     Mobile Welding Rig at your side. Anytime, Anyplace, Anywhere!
   </p>
 
+  <!-- Temporarily Disable
   <button type="button" class="btn-circle">
     <i class="fa fa-2x fa-linkedin-square"></i>
   </button>
@@ -81,6 +95,7 @@
   <button type="button" class="btn-circle">
     <i class="fa fa-2x fa-facebook-square"></i>
   </button>
+  -->
   <!-- End Header -->
 
   {% block content %}
@@ -97,7 +112,7 @@
     <a href="{% url 'pages:home'  %}">Home</a>
     <a href="{% url 'pages:about' %}">About</a>
     <a href="{% url 'pages:work'  %}">Work</a>
-    <a href="{% url 'pages:testimonials' %}">Testimonials</a>
+    <a href="{% url 'pages:testimonials' %}">Reviews</a>
     <a href="{% url 'pages:contact' %}">Contact</a>
   </div>
 
@@ -105,10 +120,13 @@
 <!-- End Footer -->
 
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"
-  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous">
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+        crossorigin="anonymous">
 </script>
+
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous">
 </script>
 
 {% block script %}
