@@ -1,15 +1,12 @@
 from django.conf.urls import url
-from django.views.generic import RedirectView
-
-from pages.views import IndexView, AboutView
 from . import views
 
 app_name = 'pages'
 urlpatterns = [
-    url(r'^$',              IndexView.as_view(),   name='index'),
-    url(r'^home/$',         views.home,            name='home'),
-    url(r'^about/$',        AboutView.as_view(),   name='about'),
-    url(r'^contact/$',      views.contact,         name='contact'),
-    url(r'^work/$',         views.work,            name='work'),
-    url(r'^testimonials/$', views.testimonials,    name='testimonials')
+    url(r'^$',              views.IndexView.as_view(), name='index'),
+    url(r'^home/$',         views.home,                name='home'),
+    url(r'^about/$',        views.AboutView.as_view(), name='about'),
+    url(r'^contact/$',      views.contact,             name='contact'),
+    url(r'^work/$',         views.work,                name='work'),
+    url(r'^testimonials/$', views.testimonials,        name='testimonials')
 ]

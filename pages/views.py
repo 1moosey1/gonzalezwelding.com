@@ -6,6 +6,7 @@ from pages.models import Testimonial, Project
 from django.core.mail import send_mail
 from django.views.decorators.clickjacking import xframe_options_exempt
 
+
 # Index View - redirects to home page
 class IndexView(RedirectView):
 
@@ -43,7 +44,7 @@ def contact(request):
 
             send_mail('Contact', message, email, [email])
             if cleaned_data['email']:
-                
+
                 message = 'Thank you for contacting GWM.' + '\n' \
                 + 'Will get back to you ASAP!'
                 send_mail('auto-reply', message, email, [cleaned_data['email']])
