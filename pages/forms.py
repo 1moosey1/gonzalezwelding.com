@@ -10,13 +10,4 @@ class ContactForm(forms.Form):
     name = forms.CharField(widget=_text_input, max_length=36)
     email = forms.CharField(widget=_text_input, required=False)
     subject = forms.CharField(widget=_text_input, max_length=100)
-    message = forms.CharField(widget=_text_area)
-
-    def clean_message(self):
-
-        message = self.cleaned_data['message']
-        message_len = len(message)
-        if message_len < 5:
-            raise forms.ValidationError("Message must be at least 5 characters")
-
-        return message
+    message = forms.CharField(widget=_text_area, min_length=12)
