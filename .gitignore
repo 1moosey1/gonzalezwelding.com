@@ -4,3 +4,4 @@ pages/migrations/*
 workbench/migrations/*
 gonzalezwelding/settings.py
 .idea/
+media/

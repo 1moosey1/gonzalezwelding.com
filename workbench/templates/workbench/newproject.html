@@ -1,0 +1,35 @@
+{% extends 'workbench/base.html' %}
+{% load static %}
+
+{% block link %}
+<link rel="stylesheet"
+      href="{% static 'css/newproject.css' %}"/>
+{% endblock %}
+
+{% block content %}
+<form action="/gwm/newproject/" method="post" enctype="multipart/form-data">
+
+    {% csrf_token %}
+
+    <div class="fieldwrapper">
+        <label for="{{ form.title.id_for_label }}">Project Title</label>
+        <br/>
+        {{ form.title }}
+    </div>
+
+    <div class="fieldwrapper">
+        <label for="{{ form.description.id_for_label }}">Description</label>
+        <br/>
+        {{ form.description }}
+    </div>
+
+    <div class="fieldwrapper">
+        {{ form.images }}
+    </div>
+
+    <div class="submitwrapper">
+        <input type="submit" value="Submit Project" />
+    </div>
+
+</form>
+{% endblock %}

@@ -1,10 +1,11 @@
-from django.views.generic import TemplateView, RedirectView
 from django.contrib import messages
-from django.shortcuts import render
-from pages.forms import ContactForm
-from pages.models import Testimonial, Project
 from django.core.mail import send_mail
+from django.shortcuts import render
 from django.views.decorators.clickjacking import xframe_options_exempt
+from django.views.generic import TemplateView, RedirectView
+
+from pages.forms import ContactForm
+from workbench.models import Testimonial, Project
 
 
 # Index View - redirects to home page
