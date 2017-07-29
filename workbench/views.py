@@ -15,7 +15,7 @@ class NewProjectView(FormView):
 
     form_class = ProjectForm
     template_name = 'workbench/newproject.html'
-    success_url = '/gwm/newproject/'
+    success_url = '/workbench/project/new/'
 
     def post(self, request, *args, **kwargs):
 
@@ -44,3 +44,7 @@ class NewProjectView(FormView):
 
         else:
             return self.form_invalid(form)
+
+
+def manage_projects(request):
+    return render(request, 'workbench/manageprojects.html')
