@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block content %}
-<form action="/gwm/newproject/" method="post" enctype="multipart/form-data">
+<form action="{% url 'workbench:newproject' %}" method="post" enctype="multipart/form-data">
 
     {% csrf_token %}
 
