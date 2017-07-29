@@ -4,24 +4,25 @@ form {
 }
 
 input[type="text"], input[type="file"], textarea {
+
     width: 100%;
 }
 
-.fieldwrapper {
+.fieldwrapper, .submitwrapper {
 
     width: 50%;
     margin: 20px auto 20px auto;
 }
 
+.submitwrapper {
+
+    text-align: right;
+}
+
 @media only screen and (max-width: 768px) {
 
-    .fieldwrapper {
+    .fieldwrapper, .submitwrapper {
 
         width: 100%;
     }
-}
-
-.submitwrapper {
-
-    margin-top: 50px;
 }
