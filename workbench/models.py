@@ -24,8 +24,8 @@ class Project(models.Model):
 # Linked to a project
 class Image(models.Model):
 
-    image = models.ImageField(upload_to=settings.MEDIA_ROOT)
+    image_field = models.ImageField(upload_to="")
     project = models.ForeignKey(Project, related_name='images', on_delete=models.CASCADE)
 
     def __str__(self):
-        return 'Image: {}'.format(self.image.name)
+        return 'Image: {}'.format(self.image_field.url)

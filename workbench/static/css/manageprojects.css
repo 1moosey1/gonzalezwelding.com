@@ -1,0 +1,66 @@
+img {
+
+    display: inline;
+    height: 150px;
+    margin: 3px 2px 3px 2px;
+}
+
+.newproj-btn {
+
+    width: 85%;
+    margin: auto;
+    text-align: right;
+}
+
+.projects {
+
+    width: 85%;
+    margin: auto;
+    column-count: 2;
+    column-gap: 2em;
+}
+
+.project {
+
+    display: inline-block;
+    width: 100%;
+    margin: 10px auto 20px auto;
+    padding: 25px;
+    background-color: #fefff7;
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 0 0 5px 2px #adadaf;
+}
+
+@media only screen and (max-width: 768px) {
+
+    .projects {
+
+        width: 95%;
+        column-count: 1;
+    }
+
+    .newproj-btn {
+
+        display: none;
+    }
+
+    img {
+
+        height: 100px;
+    }
+
+}
+
+.modify-btn {
+
+    margin-top: 25px;
+    text-align: right;
+}
+
+.align-left {
+
+    margin: auto;
+    text-align: left;
+}

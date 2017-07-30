@@ -1,5 +1,46 @@
 {% extends 'workbench/base.html' %}
+{% load static %}
+
+{% block link %}
+  <link rel="stylesheet"
+        href="{% static 'css/manageprojects.css' %}"/>
+{%  endblock %}
 
 {% block content %}
-    <h1>Manage Projects</h1>
+
+  <h1>Project Manager</h1>
+
+  <div class="newproj-btn">
+    <a href="{% url 'workbench:newproject' %}" class="btn btn-danger"> New Project </a>
+  </div>
+
+  {% if projects %}
+
+    <div class="projects">
+    {% for project in projects %}
+
+      <div class="project">
+
+        <h3 class="align-left"> {{ project.title }} </h3>
+        <p class="align-left"> {{ project.description }} </p>
+        <br/>
+
+        {% for image in project.images.all %}
+          <img src="{{ image.image_field.url }}"/>
+        {% endfor %}
+
+
+        <div class="modify-btn">
+          <a href= "{% url 'workbench:modifyproject' %}" class="btn btn-primary"> Modify </a>
+        </div>
+
+      </div>
+
+    {% endfor %}
+    </div>
+
+  {% else %}
+    <h3>No projects available to view</h3>
+  {% endif %}
+
 {% endblock %}

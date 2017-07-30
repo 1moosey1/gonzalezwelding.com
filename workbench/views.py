@@ -10,12 +10,12 @@ def workbench(request):
     return render(request, 'workbench/home.html')
 
 
-# Create new project view
+# Create a new project view
 class NewProjectView(FormView):
 
     form_class = ProjectForm
     template_name = 'workbench/newproject.html'
-    success_url = '/workbench/project/new/'
+    success_url = '/workbench/project/manage/'
 
     def post(self, request, *args, **kwargs):
 
@@ -34,7 +34,7 @@ class NewProjectView(FormView):
             for file in files:
 
                 # Create new image based on uploaded image and save it
-                uploaded_image = Image(image=file, project=new_project)
+                uploaded_image = Image(image_field=file, project=new_project)
                 uploaded_image.save()
 
                 # Attach image to project
@@ -46,5 +46,14 @@ class NewProjectView(FormView):
             return self.form_invalid(form)
 
 
+# Project Manager
 def manage_projects(request):
-    return render(request, 'workbench/manageprojects.html')
+
+    context = {'projects': Project.objects.all()}
+    return render(request, 'workbench/manageprojects.html', context)
+
+
+from django.http import HttpResponse
+# Modify or delete a project
+def modify_project(request) :
+    return HttpResponse("Modify: ?")
