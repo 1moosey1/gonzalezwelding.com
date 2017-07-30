@@ -31,7 +31,7 @@
 
 
         <div class="modify-btn">
-          <a href= "{% url 'workbench:modifyproject' %}" class="btn btn-primary"> Modify </a>
+          <a href= "{% url 'workbench:modifyproject' %}{{ project.title }}" class="btn btn-primary"> Modify </a>
         </div>
 
       </div>
