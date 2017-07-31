@@ -6,5 +6,5 @@ urlpatterns = [
     url('^$', views.workbench, name='workbench'),
     url('^project/new/$', views.NewProjectView.as_view(), name="newproject"),
     url('^project/manage/$', views.manage_projects, name="manageprojects"),
-    url('^project/modify/(?P<project_name>.*)?$', views.modify_project, name="modifyproject")
+    url('^project/modify/(?P<project_id>[0-9]{0,4})?$', views.modify_project, name="modifyproject")
 ]

@@ -14,7 +14,7 @@ class Testimonial(models.Model):
 # Model for work/project information
 class Project(models.Model):
 
-    title = models.CharField(primary_key=True, max_length=64)
+    title = models.CharField(unique=True, max_length=64)
     description = models.TextField(max_length=512)
 
     def __str__(self):

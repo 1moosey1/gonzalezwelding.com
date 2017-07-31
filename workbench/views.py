@@ -55,5 +55,10 @@ def manage_projects(request):
 
 from django.http import HttpResponse
 # Modify or delete a project
-def modify_project(request, project_name):
-    return HttpResponse("Modify: " + project_name)
+def modify_project(request, project_id):
+
+    if not project_id:
+        return HttpResponse("404")
+
+    project = Project.objects.get(id=project_id)
+    return HttpResponse("Modify: " + str(project.id))

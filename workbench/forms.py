@@ -14,3 +14,5 @@ class ProjectForm(forms.Form):
         project = Project.objects.filter(title=title)
         if len(project) > 0:
             raise forms.ValidationError('Duplicate project title! Please choose a unique project title.')
+
+        return title
