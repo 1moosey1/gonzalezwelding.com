@@ -58,7 +58,7 @@ from django.http import HttpResponse
 def modify_project(request, project_id):
 
     if not project_id:
-        return HttpResponse("404")
+        return render(request, 'workbench/404.html', { '404message': 'Project not found!' })
 
     project = Project.objects.get(id=project_id)
-    return HttpResponse("Modify: " + str(project.id))
+    return render(request, 'workbench/modifyproject.html')
