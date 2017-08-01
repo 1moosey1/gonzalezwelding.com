@@ -16,3 +16,31 @@ class ProjectForm(forms.Form):
             raise forms.ValidationError('Duplicate project title! Please choose a unique project title.')
 
         return title
+
+
+class ModifyForm(ProjectForm):
+
+    def __init__(self, project, *args, **kwargs):
+
+        super(ModifyForm, self).__init__(*args, **kwargs)
+        self.project = project
+
+        # Set initial values for title/description and modify images requirement
+        self.fields['title'].initial = project.title
+        self.fields['description'].initial = project.description
+        self.fields['images'].required = False
+
+        # Create checkboxes for every image in the project
+        self.create_checkboxes()
+
+    def create_checkboxes(self):
+
+        images = self.project.images.all()
+        choices = []
+
+        for i in range(len(images)):
+            choices.append(('', ''))
+
+        self.fields['checkboxes'] = \
+            forms.MultipleChoiceField(widget=forms.CheckboxSelectMultiple, choices=choices)
+        self.fields['checkboxes'].required = False

@@ -3,13 +3,14 @@
 
 {% block link %}
 <link rel="stylesheet"
-      href="{% static 'css/newproject.css' %}"/>
+      href="{% static 'css/projectforms.css' %}"/>
 {% endblock %}
 
 {% block content %}
 
   {% if form.errors %}
-    <div class="alert alert-danger alertwrapper">
+    <div class="alert alert-danger alert-dismissible alertwrapper">
+      <a href="#" class="close" data-dismiss="alert">&times;</a>
       {{ form.title.errors }}
       {{ form.description.errors }}
       {{ form.images.errors }}

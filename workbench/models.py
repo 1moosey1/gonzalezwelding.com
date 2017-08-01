@@ -1,5 +1,4 @@
 from django.db import models
-from gonzalezwelding import settings
 
 
 # Model for all testimonials

@@ -1,4 +1,73 @@
 {% extends 'workbench/base.html' %}
+{% load static %}
+
+{% block link %}
+<link rel="stylesheet"
+      href="{% static 'css/projectforms.css' %}"/>
+{% endblock %}
 
 {% block content %}
+
+  {% if form.errors %}
+    <div class="alert alert-danger alert-dismissible alertwrapper">
+      <a href="#" class="close" data-dismiss="alert">&times;</a>
+      {{ form.title.errors }}
+      {{ form.description.errors }}
+      {{ form.images.errors }}
+    </div>
+  {% endif %}
+
+  <form action="{% url 'workbench:modifyproject' %}{{ project.id }}" method="post" enctype="multipart/form-data">
+
+    {% csrf_token %}
+
+    <div class="fieldwrapper">
+      <label for="{{ form.title.id_for_label }}">Project Title</label>
+      <br/>
+      {{ form.title }}
+    </div>
+
+    <div class="fieldwrapper">
+      <label for="{{ form.description.id_for_label }}">Description</label>
+      <br/>
+      {{ form.description }}
+    </div>
+
+    <div class="fieldwrapper">
+      {{ form.images }}
+    </div>
+
+    <div class="fieldwrapper">
+      {% for checkbox in form.checkboxes %}
+        {{ checkbox }}
+      {% endfor %}
+    </div>
+
+    <div class="submitwrapper">
+      <input type="submit" value="Save Changes" />
+    </div>
+
+  </form>
+
+{% endblock %}
+
+{% block script %}
+
+  <script>
+
+      // Attach images to checkboxes
+
+      var images = [];
+      {% for image in project.images.all %}
+      images.push("{{ image.image_field.url }}");
+      {% endfor %}
+
+      images.forEach(function(url, index) {
+
+          var label = document.querySelector("[for='id_checkboxes_" + index + "']");
+          label.insertAdjacentHTML("beforeend", "<img src='" + images[index] + "'/>");
+      });
+
+  </script>
+
 {% endblock %}

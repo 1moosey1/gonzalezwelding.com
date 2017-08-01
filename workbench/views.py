@@ -1,7 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.core.urlresolvers import reverse
 from django.views.generic.edit import FormView
+from django.core.exceptions import ObjectDoesNotExist
 
-from workbench.forms import ProjectForm
+from workbench.forms import ProjectForm, ModifyForm
 from workbench.models import Project, Image
 
 
@@ -53,12 +55,35 @@ def manage_projects(request):
     return render(request, 'workbench/manageprojects.html', context)
 
 
-from django.http import HttpResponse
 # Modify or delete a project
 def modify_project(request, project_id):
 
-    if not project_id:
-        return render(request, 'workbench/404.html', { '404message': 'Project not found!' })
+    try:
+        project = Project.objects.get(id=project_id)
 
-    project = Project.objects.get(id=project_id)
-    return render(request, 'workbench/modifyproject.html')
+    except (ValueError, ObjectDoesNotExist):
+        return render(request, 'workbench/404.html', {'404message': 'Project not found!'})
+
+    # Check if data was posted
+    if request.POST:
+        return handle_project_modification(request, project)
+
+    context = {'form': ModifyForm(project), 'project': project}
+    return render(request, 'workbench/modifyproject.html', context)
+
+
+# Handles modification of projects
+def handle_project_modification(request, project):
+
+    form = ModifyForm(project, request.POST, files=request.FILES)
+
+    if form.is_valid():
+
+        project.title = form.cleaned_data['title']
+        project.description = form.cleaned_data['description']
+        project.save()
+
+        return redirect(reverse('workbench:manageprojects'))
+
+    context = {'form': form, 'project': project}
+    return render(request, 'workbench/modifyproject.html', context)
