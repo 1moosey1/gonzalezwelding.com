@@ -38,7 +38,8 @@
     </div>
 
     <div class="submitwrapper">
-      <input type="submit" value="Submit Project" />
+      <a href="{% url 'workbench:manageprojects' %}" class="btn btn-warning">Cancel</a>
+      <input class="btn btn-success" type="submit" value="Submit Project" />
     </div>
 
   </form>
