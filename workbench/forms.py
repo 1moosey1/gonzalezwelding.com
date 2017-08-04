@@ -40,7 +40,7 @@ class ModifyForm(ProjectForm):
         choices = []
 
         for i in range(len(images)):
-            choices.append(('', ''))
+            choices.append((images[i].id, ''))
 
         self.fields['checkboxes'] = \
             forms.MultipleChoiceField(widget=forms.CheckboxSelectMultiple, choices=choices)
