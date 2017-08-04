@@ -26,7 +26,7 @@ def create_project(request):
         create_form = ProjectForm()
 
     context = {'form': create_form}
-    return render(request, 'workbench/newproject.html', context)
+    return render(request, 'workbench/createproject.html', context)
 
 
 # Render project manager
