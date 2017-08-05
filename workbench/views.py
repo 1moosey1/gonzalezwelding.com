@@ -63,4 +63,4 @@ def modify_project(request, project_id):
 
 # Delete a project
 def delete_project(request, project_id):
-    pass
+    return render(request, 'workbench/deleteproject.html')
