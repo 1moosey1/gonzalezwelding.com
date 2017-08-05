@@ -44,7 +44,7 @@ def modify_project(request, project_id):
         project = Project.objects.get(id=project_id)
 
     except (ValueError, ObjectDoesNotExist):
-        return render(request, 'workbench/404.html', {'404message': 'Project not found!'})
+        return render(request, 'workbench/404.html', {'404message': 'Project not found!'}, status=404)
 
     # Check if POST
     if request.POST:
