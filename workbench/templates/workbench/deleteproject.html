@@ -1,4 +1,39 @@
 {% extends 'workbench/base.html' %}
+{% load static %}
+
+{% block link %}
+  <link rel="stylesheet"
+        href="{% static 'css/projectforms.css' %}"/>
+  <link rel="stylesheet"
+        href="{% static 'css/projects.css' %}"/>
+{% endblock %}
 
 {% block content %}
+
+  <h1>Delete <i>{{ project.title }}</i>?</h1>
+
+  <form action="{% url 'workbench:deleteproject' %}{{ project.id }}" method="post">
+
+    {% csrf_token %}
+
+    <div class="fieldwrapper">
+      <div class="project">
+
+        <h3 class="align-left"> {{ project.title }} </h3>
+        <p class="align-left"> {{ project.description }} </p>
+        <br/>
+
+        {% for image in project.images.all %}
+          <img class="preview" src="{{ image.image_field.url }}"/>
+        {% endfor %}
+
+      </div>
+    </div>
+
+    <div class="submitwrapper">
+      <a href="{% url 'workbench:manageprojects' %}" class="btn btn-success"> Cancel </a>
+      <input class="btn btn-danger" type="submit" value="Confirm Delete" />
+    </div>
+
+  </form>
 {% endblock %}

@@ -3,7 +3,7 @@
 
 {% block link %}
   <link rel="stylesheet"
-        href="{% static 'css/manageprojects.css' %}"/>
+        href="{% static 'css/projects.css' %}"/>
 {%  endblock %}
 
 {% block content %}
@@ -26,12 +26,13 @@
         <br/>
 
         {% for image in project.images.all %}
-          <img src="{{ image.image_field.url }}"/>
+          <img class="preview" src="{{ image.image_field.url }}"/>
         {% endfor %}
 
 
         <div class="modify-btn">
-          <a href= "{% url 'workbench:modifyproject' %}{{ project.id }}" class="btn btn-primary"> Modify </a>
+          <a href= "{% url 'workbench:deleteproject' %}{{ project.id }}" class="btn btn-danger"> Delete </a>
+          <a href= "{% url 'workbench:modifyproject' %}{{ project.id }}" class="btn btn-primary"> Edit </a>
         </div>
 
       </div>

@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.core.exceptions import ObjectDoesNotExist
 
-from workbench.utility import handle_project_creation, handle_project_modification
+from workbench.utility import handle_project_creation, handle_project_modification, handle_project_deletion
 from workbench.forms import ProjectForm, ModifyForm
 from workbench.models import Project
 
@@ -63,4 +63,17 @@ def modify_project(request, project_id):
 
 # Delete a project
 def delete_project(request, project_id):
-    return render(request, 'workbench/deleteproject.html')
+
+    # If bad project_id or no project_id is provided display 404 page
+    try:
+        project = Project.objects.get(id=project_id)
+
+    except (ValueError, ObjectDoesNotExist):
+        return render(request, 'workbench/404.html', {'404message': 'Project not found!'}, status=404)
+
+    # If post then delete is confirmed
+    if request.POST:
+        return handle_project_deletion(project)
+
+    context = {'project': project}
+    return render(request, 'workbench/deleteproject.html', context)

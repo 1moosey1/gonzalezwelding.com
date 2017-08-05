@@ -48,6 +48,13 @@ def handle_project_modification(mod_form):
     return HttpResponseSeeOther(reverse('workbench:manageprojects'))
 
 
+# Handle deletion of projects
+def handle_project_deletion(project):
+
+    project.delete()
+    return HttpResponseSeeOther(reverse('workbench:manageprojects'))
+
+
 # Save uploaded images
 def save_images(project, files):
 
