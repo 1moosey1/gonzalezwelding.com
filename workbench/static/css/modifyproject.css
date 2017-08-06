@@ -1,0 +1,33 @@
+label[for^="id_checkboxes"] {
+
+    display: inline-block;
+    position: relative;
+}
+
+label[for^="id_checkboxes"] img {
+
+    height: 150px;
+    width: 150px;
+}
+
+input[id^="id_checkboxes"] {
+
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+input[id^="id_checkboxes"]:checked:after {
+
+   content: 'X';
+   color: red;
+   font-size: 24px;
+   position: absolute;
+   background-color: rgba(187, 184, 184, 0.7);
+   width: 100%;
+   height: 100%;
+}

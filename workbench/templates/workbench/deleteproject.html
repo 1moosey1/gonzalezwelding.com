@@ -10,7 +10,7 @@
 
 {% block content %}
 
-  <h1>Delete <i>{{ project.title }}</i>?</h1>
+  <h1> Delete <i>{{ project.title }}</i>? </h1>
 
   <form action="{% url 'workbench:deleteproject' %}{{ project.id }}" method="post" id="projectform">
 
@@ -36,6 +36,7 @@
     </div>
 
   </form>
+
 {% endblock %}
 
 {% block script %}

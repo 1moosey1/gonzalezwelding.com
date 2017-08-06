@@ -8,15 +8,17 @@
 
 {% block content %}
 
-  <h1>Create Project</h1>
+  <h1> Create Project </h1>
 
   {% if form.errors %}
+
     <div class="alert alert-danger alert-dismissible alertwrapper">
       <a href="#" class="close" data-dismiss="alert">&times;</a>
       {{ form.title.errors }}
       {{ form.description.errors }}
       {{ form.images.errors }}
     </div>
+
   {% endif %}
 
   <form action="{% url 'workbench:createproject' %}" id="projectform"
@@ -46,6 +48,7 @@
     </div>
 
   </form>
+
 {% endblock %}
 
 {% block script %}

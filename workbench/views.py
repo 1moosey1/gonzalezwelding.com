@@ -1,5 +1,6 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.core.exceptions import ObjectDoesNotExist
+from django.contrib import messages
 
 from workbench.utility import handle_project_creation, handle_project_modification, handle_project_deletion
 from workbench.forms import ProjectForm, ModifyForm
@@ -19,6 +20,8 @@ def create_project(request):
 
         create_form = ProjectForm(request.POST, files=request.FILES)
         if create_form.is_valid():
+
+            messages.success(request, "Project has been created")
             return handle_project_creation(create_form)
 
     # Must be GET
@@ -51,6 +54,8 @@ def modify_project(request, project_id):
 
         mod_form = ModifyForm(project, request.POST, files=request.FILES)
         if mod_form.is_valid():
+
+            messages.success(request, "Project changes have been saved")
             return handle_project_modification(mod_form)
 
     # Must be GET
@@ -73,6 +78,8 @@ def delete_project(request, project_id):
 
     # If post then delete is confirmed
     if request.POST:
+
+        messages.success(request, "Project has been deleted")
         return handle_project_deletion(project)
 
     context = {'project': project}

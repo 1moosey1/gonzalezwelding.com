@@ -1,21 +1,5 @@
-.preview {
-
-    display: inline;
-    height: 150px;
-    margin: 3px 2px 3px 2px;
-}
-
-.newproj-btn {
-
-    width: 85%;
-    margin: auto;
-    text-align: right;
-}
-
 .projects {
 
-    width: 85%;
-    margin: auto;
     column-count: 2;
     column-gap: 2em;
 }
@@ -33,34 +17,22 @@
     box-shadow: 0 0 5px 2px #adadaf;
 }
 
+.preview {
+
+    display: inline;
+    height: 150px;
+    margin: 3px 2px 3px 2px;
+}
+
 @media only screen and (max-width: 768px) {
 
     .projects {
 
-        width: 95%;
         column-count: 1;
     }
 
-    .newproj-btn {
-
-        display: none;
-    }
-
-    .thumbnail {
+    .preview {
 
         height: 100px;
     }
-
-}
-
-.modify-btn {
-
-    margin-top: 25px;
-    text-align: right;
-}
-
-.align-left {
-
-    margin: auto;
-    text-align: left;
 }
