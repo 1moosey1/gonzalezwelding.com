@@ -1,8 +1,7 @@
 from django.contrib import messages
 from django.core.mail import send_mail
 from django.shortcuts import render
-from django.views.decorators.clickjacking import xframe_options_exempt
-from django.views.generic import TemplateView, RedirectView
+from django.views.generic import RedirectView
 
 from pages.forms import ContactForm
 from workbench.models import Testimonial, Project
@@ -16,15 +15,14 @@ class IndexView(RedirectView):
     pattern_name = 'pages:home'
 
 
-# Home View - render home page
-@xframe_options_exempt
+# Render home page
 def home(request):
     return render(request, 'pages/index.html')
 
 
-# About View - render about page
-class AboutView(TemplateView):
-    template_name = 'pages/about.html'
+# Render about page
+def about(request):
+    return render(request, 'pages/about.html')
 
 
 # Render contact page
