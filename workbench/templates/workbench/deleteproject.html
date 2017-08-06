@@ -12,7 +12,7 @@
 
   <h1>Delete <i>{{ project.title }}</i>?</h1>
 
-  <form action="{% url 'workbench:deleteproject' %}{{ project.id }}" method="post">
+  <form action="{% url 'workbench:deleteproject' %}{{ project.id }}" method="post" id="projectform">
 
     {% csrf_token %}
 
@@ -31,9 +31,14 @@
     </div>
 
     <div class="submitwrapper">
-      <a href="{% url 'workbench:manageprojects' %}" class="btn btn-success"> Cancel </a>
-      <input class="btn btn-danger" type="submit" value="Confirm Delete" />
+      <a href="{% url 'workbench:manageprojects' %}" class="btn btn-success" id="cancel"> Cancel </a>
+      <input class="btn btn-danger" type="submit" id="submit" value="Confirm Delete"/>
     </div>
 
   </form>
+{% endblock %}
+
+{% block script %}
+  <script src="{% static 'js/disablebuttons.js' %}">
+  </script>
 {% endblock %}

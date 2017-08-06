@@ -19,7 +19,8 @@
     </div>
   {% endif %}
 
-  <form action="{% url 'workbench:modifyproject' %}{{ project.id }}" method="post" enctype="multipart/form-data">
+  <form action="{% url 'workbench:modifyproject' %}{{ project.id }}" id="projectform"
+        method="post" enctype="multipart/form-data" >
 
     {% csrf_token %}
 
@@ -46,8 +47,8 @@
     </div>
 
     <div class="submitwrapper">
-      <a href="{% url 'workbench:manageprojects' %}" class="btn btn-warning"> Cancel </a>
-      <input class="btn btn-success" type="submit" value="Save Changes" />
+      <a href="{% url 'workbench:manageprojects' %}" class="btn btn-warning" id="cancel"> Cancel </a>
+      <input class="btn btn-success" type="submit" id="submit" value="Save Changes" />
     </div>
 
   </form>
@@ -71,6 +72,9 @@
           label.insertAdjacentHTML("beforeend", "<img src='" + images[index] + "'/>");
       });
 
+  </script>
+
+  <script src="{% static 'js/disablebuttons.js' %}">
   </script>
 
 {% endblock %}
