@@ -1,0 +1,45 @@
+html {
+
+    width: 85%;
+    margin: auto;
+}
+
+@media only screen and (max-width: 768px) {
+
+    html {
+
+        width: 95%;
+    }
+}
+
+.modal-dialog {
+
+    margin: auto;
+}
+
+.modal-content {
+
+    background-color: rgba(0, 0, 0, 0);
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border: none;
+}
+
+.modal-header {
+
+    border-bottom: none;
+    color: white;
+}
+
+.close {
+
+    opacity: 1;
+    font-size: 32px;
+    color:white;
+}
+
+.enlarged {
+
+    width: 100%;
+    max-height: 100vh;
+}
