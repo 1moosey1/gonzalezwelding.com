@@ -1,5 +1,5 @@
 from django import forms
-from workbench.models import Project
+from projects.models import Project
 
 
 class ProjectForm(forms.Form):

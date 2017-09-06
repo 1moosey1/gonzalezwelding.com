@@ -21,7 +21,7 @@
 
   {% endif %}
 
-  <form action="{% url 'workbench:createproject' %}" id="projectform"
+  <form action="{% url 'projects:create' %}" id="projectform"
         method="post" enctype="multipart/form-data">
 
     {% csrf_token %}
@@ -43,7 +43,7 @@
     </div>
 
     <div class="submitwrapper">
-      <a href="{% url 'workbench:manageprojects' %}" class="btn btn-warning" id="cancel"> Cancel </a>
+      <a href="{% url 'projects:manager' %}" class="btn btn-warning" id="cancel"> Cancel </a>
       <input class="btn btn-success" type="submit" id="submit" value="Submit Project" />
     </div>
 

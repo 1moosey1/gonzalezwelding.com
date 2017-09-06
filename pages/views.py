@@ -4,7 +4,7 @@ from django.shortcuts import render
 from django.views.generic import RedirectView
 
 from pages.forms import ContactForm
-from workbench.models import Testimonial, Project
+from projects.models import Project
 
 
 # Index View - redirects to home page
@@ -67,5 +67,5 @@ def work(request):
 # Render testimonials page
 def testimonials(request):
 
-    context = {'testimonials': Testimonial.objects.filter(display=True)}
-    return render(request, 'pages/testimonials.html', context)
+    # context = {'testimonials': Testimonial.objects.filter(display=True)}
+    return render(request, 'pages/testimonials.html')  # , context)

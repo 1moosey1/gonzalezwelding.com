@@ -3,7 +3,7 @@
 
 {% block link %}
   <link rel="stylesheet"
-        href="{% static 'css/modifyproject.css' %}"/>
+        href="{% static 'css/projectmodify.css' %}"/>
   <link rel="stylesheet"
         href="{% static 'css/projectforms.css' %}"/>
 {% endblock %}
@@ -21,7 +21,7 @@
     </div>
   {% endif %}
 
-  <form action="{% url 'workbench:modifyproject' %}{{ project.id }}" id="projectform"
+  <form action="{% url 'projects:modify' %}{{ project.id }}" id="projectform"
         method="post" enctype="multipart/form-data" >
 
     {% csrf_token %}
@@ -49,7 +49,7 @@
     </div>
 
     <div class="submitwrapper">
-      <a href="{% url 'workbench:manageprojects' %}" class="btn btn-warning" id="cancel"> Cancel </a>
+      <a href="{% url 'projects:manager' %}" class="btn btn-warning" id="cancel"> Cancel </a>
       <input class="btn btn-success" type="submit" id="submit" value="Save Changes" />
     </div>
 

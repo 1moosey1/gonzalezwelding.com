@@ -1,8 +1,6 @@
 from django.contrib import admin
 
-from workbench.models import Testimonial, Project, Image
+from workbench.models import Testimonial
 
-# Register testimonial and project model
+# Register testimonial
 admin.site.register(Testimonial)
-admin.site.register(Project)
-admin.site.register(Image)

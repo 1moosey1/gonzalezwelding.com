@@ -3,7 +3,7 @@
 
 {% block link %}
   <link rel="stylesheet"
-        href="{% static 'css/manageprojects.css' %}"/>
+        href="{% static 'css/projectmanager.css' %}"/>
   <link rel="stylesheet"
         href="{% static 'css/projects.css' %}"/>
 {%  endblock %}
@@ -24,7 +24,7 @@
   {% endif %}
 
   <div class="button-wrapper">
-    <a href="{% url 'workbench:createproject' %}" class="btn btn-success"> Create Project </a>
+    <a href="{% url 'projects:create' %}" class="btn btn-success"> Create Project </a>
   </div>
 
   {% if projects %}
@@ -43,8 +43,8 @@
         {% endfor %}
 
         <div class="button-wrapper">
-          <a href= "{% url 'workbench:deleteproject' %}{{ project.id }}" class="btn btn-danger"> Delete </a>
-          <a href= "{% url 'workbench:modifyproject' %}{{ project.id }}" class="btn btn-primary"> Edit </a>
+          <a href= "{% url 'projects:delete' %}{{ project.id }}" class="btn btn-danger"> Delete </a>
+          <a href= "{% url 'projects:modify' %}{{ project.id }}" class="btn btn-primary"> Edit </a>
         </div>
 
       </div>
