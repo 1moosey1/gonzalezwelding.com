@@ -1,13 +1,22 @@
-from django.core.urlresolvers import reverse
-
-from workbench.utility import HttpResponseSeeOther
+from django.core.exceptions import ObjectDoesNotExist
 from projects.models import Project, Image
+
+
+# Retrieve project if it exists
+def get_project(project_id):
+
+    try:
+        project = Project.objects.get(id=project_id)
+
+    except (ValueError, ObjectDoesNotExist):
+        return False
+
+    return project
 
 
 # Handles creation of projects
 def handle_project_creation(create_form):
 
-    # Shorten calls
     cleaned_data = create_form.cleaned_data
     files = create_form.files
 
@@ -15,16 +24,13 @@ def handle_project_creation(create_form):
     new_project = Project(title=cleaned_data['title'], description=cleaned_data['description'])
     new_project.save()
 
-    # Get all uploaded images
+    # Save all uploaded images
     save_images(new_project, files.getlist('images'))
-
-    return HttpResponseSeeOther(reverse('projects:manager'))
 
 
 # Handles modification of projects
 def handle_project_modification(mod_form):
 
-    # Shorten calls
     project = mod_form.project
     cleaned_data = mod_form.cleaned_data
     files = mod_form.files
@@ -40,14 +46,10 @@ def handle_project_modification(mod_form):
     if cleaned_data['checkboxes']:
         delete_images(project, cleaned_data['checkboxes'])
 
-    return HttpResponseSeeOther(reverse('projects:manager'))
-
 
 # Handle deletion of projects
 def handle_project_deletion(project):
-
     project.delete()
-    return HttpResponseSeeOther(reverse('projects:manager'))
 
 
 # Save uploaded images

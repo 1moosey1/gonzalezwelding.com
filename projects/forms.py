@@ -13,7 +13,7 @@ class ProjectForm(forms.Form):
         title = self.cleaned_data['title']
         project = Project.objects.filter(title=title)
 
-        if len(project) > 0:
+        if project.exists():
             raise forms.ValidationError('Duplicate project title! Please choose a unique project title.')
 
         return title
@@ -52,7 +52,7 @@ class ModifyForm(ProjectForm):
         project = Project.objects.filter(title=title)
 
         # Only raise validation error if the project conflicts with other names and not its own
-        if len(project) and project[0].title != self.project.title:
+        if project.exists() and project[0].title != self.project.title:
             raise forms.ValidationError('Duplicate project title! Please choose a unique project title.')
 
         return title

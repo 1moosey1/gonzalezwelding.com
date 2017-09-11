@@ -65,7 +65,7 @@
 
       var images = [];
       {% for image in project.images.all %}
-      images.push("{{ image.image_field.url }}");
+          images.push("{{ image.image_field.url }}");
       {% endfor %}
 
       images.forEach(function(url, index) {
@@ -76,7 +76,6 @@
 
   </script>
 
-  <script src="{% static 'js/disablebuttons.js' %}">
-  </script>
+  <script src="{% static 'js/disableform.js' %}"></script>
 
 {% endblock %}

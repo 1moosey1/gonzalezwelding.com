@@ -12,7 +12,6 @@
 
   <h1> Delete <i>{{ project.title }}</i>? </h1>
 
-  <form action="{% url 'projects:delete' %}{{ project.id }}" method="post" id="projectform">
 
     {% csrf_token %}
 
@@ -32,14 +31,11 @@
 
     <div class="submitwrapper">
       <a href="{% url 'projects:manager' %}" class="btn btn-success" id="cancel"> Cancel </a>
-      <input class="btn btn-danger" type="submit" id="submit" value="Confirm Delete"/>
+      <button class="btn btn-danger" id="delete"> Confirm Delete </button>
     </div>
-
-  </form>
 
 {% endblock %}
 
 {% block script %}
-  <script src="{% static 'js/disablebuttons.js' %}">
-  </script>
+  <script src="{% static 'js/deleterequest.js' %}"></script>
 {% endblock %}
