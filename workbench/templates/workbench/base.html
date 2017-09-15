@@ -27,47 +27,61 @@
 <body>
 
 <!-- Navigation -->
-<nav class="navbar navbar-inverse navbar-fixed-top">
+<nav class="navbar navbar-inverse navbar-fixed-top navbar-lightlink">
   <div class="container-fluid">
 
     <div class="navbar-header">
+
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navlinks">
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
       </button>
 
-      <div>
-      <span class="navbar-brand">
+      <div class="navbar-brand">
           <a href="{% url 'pages:home' %}">GWM</a>
-      </span>
       </div>
+
     </div>
 
+    <!-- Navigation Links -->
     <div class="collapse navbar-collapse" id="navlinks">
+
       <ul class="nav navbar-nav nav-pills">
 
-      <li id="home">
-        <a href="{% url 'workbench:workbench' %}">Workbench</a>
-      </li>
+        <li id="home">
+          <a href="{% url 'workbench:workbench' %}">Workbench</a>
+        </li>
 
-      <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-          Projects
-          <span class="caret"></span>
-        </a>
-        <ul class="dropdown-menu">
-          <li><a href="{% url 'projects:manager'%}"> Manage Projects </a></li>
-          <li><a href="{% url 'projects:create' %}"> Create Project </a></li>
-        </ul>
-      </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+            Projects
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="{% url 'projects:manager'%}"> Manage Projects </a></li>
+            <li><a href="{% url 'projects:create' %}"> Create Project </a></li>
+          </ul>
+        </li>
 
-      <li id="reviews">
-        <a href="#">Reviews</a>
-      </li>
+        <li id="reviews">
+          <a href="#">Reviews</a>
+        </li>
 
       </ul>
+
+      {% if request.user.is_authenticated %}
+        <ul class="nav navbar-nav nav-pills navbar-right">
+
+          <li id="logout">
+            <a href="{% url 'workbench:logout' %}"> Logout </a>
+          </li>
+
+        </ul>
+      {% endif %}
+
     </div>
+    <!-- End Navigation Links -->
 
   </div>
 </nav>

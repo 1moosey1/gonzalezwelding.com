@@ -3,14 +3,13 @@ form {
     padding: 10px;
 }
 
-input[type="text"], input[type="file"], textarea {
+input[type="text"], input[type="password"], input[type="file"], textarea {
 
     width: 100%;
 }
 
 .fieldwrapper, .submitwrapper, .alertwrapper {
 
-    width: 50%;
     margin: 20px auto 20px auto;
 }
 

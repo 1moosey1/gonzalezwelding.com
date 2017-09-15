@@ -12,12 +12,20 @@ body {
     margin-bottom: 50px;
 }
 
-.navbar-brand {
+.navbar-brand, .navbar-brand a,
+.navbar-lightlink li a:hover, .navbar-lightlink .active a  {
+
     color: #ffffff !important;
 }
 
-.navbar-brand a {
-    color: #ffffff !important;
+.navbar-lightlink li a {
+    color: #bababa !important;
+}
+
+.navbar-lightlink .dropdown-menu a,
+.navbar-lightlink .dropdown-menu a:hover {
+
+    color: #000000 !important;
 }
 
 .logo {
@@ -44,11 +52,7 @@ body {
     background-color: #e3e2c1;
 }
 
-.btn-circle:hover {
-    background-color: #f7f7ee;
-}
-
-.btn-circle:active {
+.btn-circle:hover, .btn-circle:active {
     background-color: #f7f7ee;
 }
 
@@ -71,11 +75,7 @@ body {
     opacity: 1;
 }
 
-.left {
-    background-image: none !important;
-}
-
-.right {
+.left, .right {
     background-image: none !important;
 }
 

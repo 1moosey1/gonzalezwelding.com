@@ -3,7 +3,9 @@
 
 {% block link %}
   <link rel="stylesheet"
-        href="{% static 'css/projectforms.css' %}"/>
+        href="{% static 'css/workbenchform.css' %}"/>
+  <link rel="stylesheet"
+        href="{% static 'css/projectform.css' %}"/>
   <link rel="stylesheet"
         href="{% static 'css/projects.css' %}"/>
 {% endblock %}
@@ -11,7 +13,6 @@
 {% block content %}
 
   <h1> Delete <i>{{ project.title }}</i>? </h1>
-
 
     {% csrf_token %}
 

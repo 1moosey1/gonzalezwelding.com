@@ -1,0 +1,48 @@
+{% extends 'workbench/base.html' %}
+{% load static %}
+
+{% block link %}
+  <link rel="stylesheet"
+        href="{% static 'css/workbenchform.css' %}"/>
+  <link rel="stylesheet"
+        href="{% static 'css/login.css' %}"/>
+{% endblock %}
+
+{% block content %}
+
+  <h1> Login Required </h1>
+
+  {% if messages %}
+
+      <div class="alert alert-danger alert-dismissible alertwrapper" id="alert">
+        <a href="#" class="close" data-dismiss="alert">&times;</a>
+        {% for message in messages %}
+          {{ message }}
+        {% endfor %}
+      </div>
+
+  {% endif %}
+
+  <form method="post">
+
+    {% csrf_token %}
+
+    <div class="fieldwrapper">
+      <label for="{{ form.username.id_for_label }}"> Username </label>
+      <br/>
+      {{ form.username }}
+    </div>
+
+    <div class="fieldwrapper">
+      <label for="{{ form.password.id_for_label }}"> Password </label>
+      <br/>
+      {{ form.password }}
+    </div>
+
+    <div class="submitwrapper">
+      <input class="btn btn-primary" type="submit" value="Login" />
+    </div>
+
+  </form>
+
+{% endblock %}
