@@ -14,6 +14,9 @@ def workbench(request):
 # Login page
 def login_view(request):
 
+    if request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('workbench:workbench'))
+
     if request.POST:
 
         login_form = LoginForm(request.POST)
@@ -26,7 +29,7 @@ def login_view(request):
             if user:
 
                 login(request, user)
-                redirect_url = request.GET.get('next', '/workbench/')
+                redirect_url = request.GET.get('next', reverse('workbench:workbench'))
 
                 return HttpResponseRedirect(redirect_url)
 
