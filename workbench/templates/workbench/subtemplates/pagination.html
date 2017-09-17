@@ -1,0 +1,61 @@
+<!-- Pagination -->
+{% if page_range|length > 1 %}
+<ul class="pagination">
+
+  <!-- Previous Button -->
+  {% if page_range|first == current_page %}
+
+  <li class="page-item disabled">
+    <a class="page-link"> Previous </a>
+  </li>
+
+  {% else %}
+
+  <li class="page-item">
+    <a class="page-link" href="?page={{ current_page|add:'-1' }}">
+      Previous
+    </a>
+  </li>
+
+  {% endif %}
+  <!-- End Previous Button -->
+
+  <!-- Page Buttons -->
+  {% for page in page_range %}
+  {% if page == current_page %}
+
+  <li class="page-item active">
+    <a class="page-link" href="?page={{ page }}"> {{ page|add:"1" }} </a>
+  </li>
+
+  {% else%}
+
+  <li class="page-item">
+    <a class="page-link" href="?page={{ page }}"> {{ page|add:"1" }} </a>
+  </li>
+
+  {% endif %}
+  {% endfor %}
+  <!-- End Page Buttons -->
+
+  <!-- Next Button-->
+  {% if page_range|last == current_page %}
+
+  <li class="page-item disabled">
+    <a class="page-link"> Next </a>
+  </li>
+
+  {% else %}
+
+  <li class="page-item">
+    <a class="page-link" href="?page={{ current_page|add:'1' }}">
+      Next
+    </a>
+  </li>
+
+  {% endif %}
+  <!-- End Next Button -->
+
+</ul>
+{% endif %}
+<!-- End Pagination -->

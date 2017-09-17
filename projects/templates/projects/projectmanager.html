@@ -6,7 +6,7 @@
         href="{% static 'css/projectmanager.css' %}"/>
   <link rel="stylesheet"
         href="{% static 'css/projects.css' %}"/>
-{%  endblock %}
+{% endblock %}
 
 {% block content %}
 
@@ -27,7 +27,11 @@
     <a href="{% url 'projects:create' %}" class="btn btn-success"> Create Project </a>
   </div>
 
-  {% if projects %}
+  {% if projects is None %}
+
+    <h3>No projects available to view</h3>
+
+  {% else %}
 
     <div class="projects">
     {% for project in projects %}
@@ -52,9 +56,7 @@
     {% endfor %}
     </div>
 
-  {% else %}
-
-    <h3>No projects available to view</h3>
+    {% include 'workbench/subtemplates/pagination.html' %}
 
   {% endif %}
 

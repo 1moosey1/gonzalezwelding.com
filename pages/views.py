@@ -2,9 +2,9 @@ from django.contrib import messages
 from django.core.mail import send_mail
 from django.shortcuts import render
 from django.views.generic import RedirectView
-
 from pages.forms import ContactForm
 from projects.models import Project
+from projects.utility import filter_projects, create_prange
 
 
 # Index View - redirects to home page
@@ -60,7 +60,27 @@ def contact(request):
 # Render work page
 def work(request):
 
-    context = {'projects': Project.objects.all()}
+    # If no projects render page with no context
+    projects = Project.objects.all()
+    if not projects.exists():
+        return render(request, 'pages/work.html')
+
+    # Parse page number
+    page = request.GET.get('page', 0)
+
+    try:
+        page = abs(int(page))
+
+    except ValueError:
+        page = 0
+
+    context = {
+
+        'projects': filter_projects(projects, page),
+        'current_page': page,
+        'page_range': create_prange(projects, page)
+    }
+
     return render(request, 'pages/work.html', context)
 
 

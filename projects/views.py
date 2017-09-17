@@ -1,17 +1,37 @@
 from django.contrib import messages
-from django.shortcuts import render
 from django.core.urlresolvers import reverse
+from django.shortcuts import render
 from workbench.utility import NoContentRedirect, HttpResponseSeeOther, render404
 from projects.forms import ProjectForm, ModifyForm
 from projects.models import Project
 from projects.utility import get_project, handle_project_creation, handle_project_modification, \
-    handle_project_deletion
+    handle_project_deletion, filter_projects, create_prange
 
 
 # Render project manager
 def manage_projects(request):
 
-    context = {'projects': Project.objects.all()}
+    # If no projects render page with no context
+    projects = Project.objects.all()
+    if not projects.exists():
+        return render(request, 'projects/projectmanager.html')
+
+    # Parse page number
+    page = request.GET.get('page', 0)
+
+    try:
+        page = abs(int(page))
+
+    except ValueError:
+        page = 0
+
+    context = {
+
+        'projects': filter_projects(projects, page),
+        'current_page': page,
+        'page_range': create_prange(projects, page)
+    }
+
     return render(request, 'projects/projectmanager.html', context)
 
 

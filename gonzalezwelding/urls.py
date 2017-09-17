@@ -12,7 +12,7 @@ urlpatterns = [
     url(r'^workbench/', include('workbench.urls')),
 
     # Project app for managing work showcase - navigation through workbench
-    url(r'^workbench/project/', include('projects.urls')),
+    url(r'^workbench/projects/', include('projects.urls')),
 
     # Admin plugin
     url(r'^admin/', admin.site.urls),

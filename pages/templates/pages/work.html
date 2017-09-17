@@ -12,6 +12,7 @@
 
   {% if projects %}
 
+    <!-- Display Projects -->
     <div class="projects">
     {% for project in projects %}
 
@@ -44,6 +45,9 @@
 
     {% endfor %}
     </div>
+    <!-- End Display Projects -->
+
+    {% include 'workbench/subtemplates/pagination.html' %}
 
   {% endif %}
 
