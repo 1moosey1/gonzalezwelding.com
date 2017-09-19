@@ -10,6 +10,7 @@
 
 {% block content %}
 
+  {% with objects as projects %}
   {% if projects %}
 
     <!-- Display Projects -->
@@ -47,9 +48,10 @@
     </div>
     <!-- End Display Projects -->
 
-    {% include 'workbench/subtemplates/pagination.html' %}
+    {% include 'subtemplates/pagination.html' %}
 
   {% endif %}
+  {% endwith %}
 
 {% endblock %}
 

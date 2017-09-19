@@ -1,38 +1,16 @@
 from django.contrib import messages
 from django.core.urlresolvers import reverse
 from django.shortcuts import render
-from workbench.utility import NoContentRedirect, HttpResponseSeeOther, render404
+from common.utility import NoContentRedirect, HttpResponseSeeOther, render404, render_paginated
 from projects.forms import ProjectForm, ModifyForm
 from projects.models import Project
-from projects.utility import get_project, handle_project_creation, handle_project_modification, \
-    handle_project_deletion, filter_projects, create_prange
+from projects.utility import get_project, handle_project_creation,\
+    handle_project_modification, handle_project_deletion
 
 
 # Render project manager
 def manage_projects(request):
-
-    # If no projects render page with no context
-    projects = Project.objects.all()
-    if not projects.exists():
-        return render(request, 'projects/projectmanager.html')
-
-    # Parse page number
-    page = request.GET.get('page', 0)
-
-    try:
-        page = abs(int(page))
-
-    except ValueError:
-        page = 0
-
-    context = {
-
-        'projects': filter_projects(projects, page),
-        'current_page': page,
-        'page_range': create_prange(projects, page)
-    }
-
-    return render(request, 'projects/projectmanager.html', context)
+    return render_paginated(request, Project, 'projects/projectmanager.html', 'workbench/404.html')
 
 
 # Create a project
@@ -62,7 +40,7 @@ def modify_project(request, project_id):
     # Return 404 if project can not be found
     project = get_project(project_id)
     if not project:
-        return render404(request, 'Project not found!')
+        return render404(request, 'Project not found!', 'workbench/404.html')
 
     if request.POST:
 
@@ -94,7 +72,7 @@ def delete_project(request, project_id):
     # Return 404 if project can not be found
     project = get_project(project_id)
     if not project:
-        return render404(request, 'Project not found!')
+        return render404(request, 'Project not found!', 'workbench/404.html')
 
     # Handle delete request
     if request.method == "DELETE":

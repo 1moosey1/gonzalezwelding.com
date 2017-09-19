@@ -3,6 +3,10 @@ from django.conf import settings
 from django.http import HttpResponseRedirect
 
 
+# Requires three settings
+# LOGIN_URL            - the url of the view to use
+# EXEMPT_LOGIN_URLS    - the urls that are exempt from log in requirements
+# REQUIRED_LOGIN_URLS  - the urls that require authentication
 class RequireLoginMiddleware(object):
 
     def __init__(self, get_response):

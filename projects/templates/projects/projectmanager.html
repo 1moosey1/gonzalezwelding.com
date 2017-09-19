@@ -27,7 +27,8 @@
     <a href="{% url 'projects:create' %}" class="btn btn-success"> Create Project </a>
   </div>
 
-  {% if projects is None %}
+  {% with objects as projects %}
+  {% if not projects %}
 
     <h3>No projects available to view</h3>
 
@@ -56,9 +57,10 @@
     {% endfor %}
     </div>
 
-    {% include 'workbench/subtemplates/pagination.html' %}
+    {% include 'subtemplates/pagination.html' %}
 
   {% endif %}
+  {% endwith %}
 
 {% endblock %}
 
