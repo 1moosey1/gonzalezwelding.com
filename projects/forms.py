@@ -6,6 +6,7 @@ class ProjectForm(forms.Form):
 
     title = forms.CharField(max_length=64)
     description = forms.CharField(widget=forms.Textarea, max_length=512, required=False)
+    public = forms.BooleanField(initial=True, required=False)
     images = forms.ImageField(widget=forms.ClearableFileInput(attrs={'multiple': True}))
 
     def clean_title(self):
@@ -29,6 +30,7 @@ class ModifyForm(ProjectForm):
         # Set initial values for title/description and modify images requirement
         self.fields['title'].initial = project.title
         self.fields['description'].initial = project.description
+        self.fields['public'].initial = project.public
         self.fields['images'].required = False
 
         # Create checkboxes for every image in the project

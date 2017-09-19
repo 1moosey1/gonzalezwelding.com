@@ -21,7 +21,10 @@ def handle_project_creation(create_form):
     files = create_form.files
 
     # Create new project and save it
-    new_project = Project(title=cleaned_data['title'], description=cleaned_data['description'])
+    new_project = Project()
+    new_project.title = cleaned_data['title']
+    new_project.description = cleaned_data['description']
+    new_project.public = cleaned_data['public']
     new_project.save()
 
     # Save all uploaded images
@@ -38,6 +41,7 @@ def handle_project_modification(mod_form):
     # Save project updates
     project.title = cleaned_data['title']
     project.description = cleaned_data['description']
+    project.public = cleaned_data['public']
     project.save()
 
     if files:

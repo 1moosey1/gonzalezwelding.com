@@ -27,6 +27,6 @@ input[type="text"], input[type="password"], input[type="file"], textarea {
 
     .fieldwrapper, .submitwrapper, .alertwrapper {
 
-        width: 100%;
+        width: 100% !important;
     }
 }

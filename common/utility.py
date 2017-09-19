@@ -48,7 +48,7 @@ Parameters:
 '''
 
 
-def render_paginated(request, object, html, html404):
+def render_paginated(request, object, html, html404, filters=None):
 
     # If no objects then render page with no context
     objects = object.objects.all()
@@ -63,6 +63,10 @@ def render_paginated(request, object, html, html404):
 
     except ValueError:
         page = 0
+
+    # Filter before counting pages
+    if filters:
+        objects = objects.filter(**filters)
 
     # If page is out of bounds render 404
     pages = ceil(len(objects) / settings.MAX_OBJECT_DISPLAY)

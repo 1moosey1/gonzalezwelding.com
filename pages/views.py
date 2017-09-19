@@ -59,7 +59,14 @@ def contact(request):
 
 # Render work page
 def work(request):
-    return render_paginated(request, Project, 'pages/work.html', 'pages/404.html')
+
+    # Display projects that are public
+    filters = {
+
+        "public": True
+    }
+
+    return render_paginated(request, Project, 'pages/work.html', 'pages/404.html', filters)
 
 
 # Render testimonials page

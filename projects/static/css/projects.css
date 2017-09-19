@@ -1,6 +1,11 @@
 .projects {
 
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
     column-count: 2;
+
+    -webkit-column-gap: 3;
+    -moz-column-gap: 3;
     column-gap: 2em;
 }
 
