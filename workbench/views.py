@@ -8,7 +8,9 @@ from workbench.forms import LoginForm
 
 # Render workbench home
 def workbench(request):
-    return render(request, 'workbench/home.html')
+
+    return HttpResponseRedirect(reverse('projects:manager'), status=307)
+    # return render(request, 'workbench/home.html')
 
 
 # Login page
