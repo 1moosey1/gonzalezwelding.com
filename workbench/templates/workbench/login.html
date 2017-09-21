@@ -23,7 +23,7 @@
 
   {% endif %}
 
-  <form method="post">
+  <form action="{% url 'workbench:login' %}" method="post">
 
     {% csrf_token %}
 

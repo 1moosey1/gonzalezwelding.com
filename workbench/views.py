@@ -31,9 +31,8 @@ def login_view(request):
             if user:
 
                 login(request, user)
-                redirect_url = request.GET.get('next', reverse('workbench:workbench'))
-
-                return HttpResponseRedirect(redirect_url)
+                # redirect_url = request.GET.get('next', reverse('workbench:workbench'))
+                return HttpResponseRedirect(reverse('projects:manager'))
 
             messages.error(request, 'Invalid username and/or password')
 

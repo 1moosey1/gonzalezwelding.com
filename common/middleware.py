@@ -35,4 +35,5 @@ class RequireLoginMiddleware(object):
 
             for url in self.required_urls:
                 if url.match(request.path):
-                    return HttpResponseRedirect('%s?next=%s' % (self.login_url, request.path))
+                    # return HttpResponseRedirect('%s?next=%s' % (self.login_url, request.path))
+                    return HttpResponseRedirect(self.login_url)
