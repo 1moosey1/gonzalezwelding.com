@@ -3,8 +3,9 @@ from django.conf import settings
 from django.http import HttpResponseRedirect
 
 
-# Requires three settings
+# Settings
 # LOGIN_URL            - the url of the view to use
+# NEXT_ENABLED         - whether or not to add next uri param when redirected to login
 # EXEMPT_LOGIN_URLS    - the urls that are exempt from log in requirements
 # REQUIRED_LOGIN_URLS  - the urls that require authentication
 class RequireLoginMiddleware(object):
@@ -13,6 +14,7 @@ class RequireLoginMiddleware(object):
 
         self.get_response = get_response
         self.login_url = getattr(settings, 'LOGIN_URL', '/admin/login/')
+        self.next_param = getattr(settings, 'NEXT_ENABLED', False)
         self.exempt_urls = tuple(re.compile(exempt_url) for exempt_url in settings.EXEMPT_LOGIN_URLS)
         self.required_urls = tuple(re.compile(required_url) for required_url in settings.REQUIRED_LOGIN_URLS)
 
@@ -35,5 +37,8 @@ class RequireLoginMiddleware(object):
 
             for url in self.required_urls:
                 if url.match(request.path):
-                    # return HttpResponseRedirect('%s?next=%s' % (self.login_url, request.path))
+
+                    if self.next_param:
+                        return HttpResponseRedirect('%s?next=%s' % (self.login_url, request.path))
+
                     return HttpResponseRedirect(self.login_url)
