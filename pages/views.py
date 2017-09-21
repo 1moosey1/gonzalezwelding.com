@@ -1,18 +1,9 @@
 from django.contrib import messages
 from django.core.mail import send_mail
 from django.shortcuts import render
-from django.views.generic import RedirectView
 from common.utility import render_paginated
 from pages.forms import ContactForm
 from projects.models import Project
-
-
-# Index View - redirects to home page
-class IndexView(RedirectView):
-
-    permanent = True
-    query_string = False
-    pattern_name = 'pages:home'
 
 
 # Render home page
